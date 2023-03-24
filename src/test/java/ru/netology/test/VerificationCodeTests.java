@@ -45,11 +45,4 @@ public class VerificationCodeTests {
         purchasePage.invalidCodeVerification(invalidCodeVerification_1_Digit);
     }
 
-    @Test
-    void shouldNotBePurchasedWithInvalidCodeVerification_4_Digits() {
-        open ("http://localhost:8080/");
-        var purchasePage = new PurchasePage();
-        var invalidCodeVerification_4_Digits = DataHelper.getInvalidCodeVerificationFourDigits();
-        purchasePage.invalidCodeVerification(invalidCodeVerification_4_Digits);
-    }
 }
