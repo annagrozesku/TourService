@@ -10,3 +10,4 @@
 8. Запустить docker-контейнеры командой docker-compose up --build 
 9. Запустить SUT командой java -jar aqa-shop.jar "-Dspring.datasource.url=jdbc:postgresql://localhost:5432/app" "-Dspring.datasource.url=jdbc:mysql://localhost:3306/app"
 10. Запустить автотесты командой ./gradlew clean test   
+11. Вызвать отчеты командой ./gradlew allureserve
