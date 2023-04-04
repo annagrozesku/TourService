@@ -22,8 +22,7 @@ public class PurchasePage {
         buyButton.click();
         cardNumber.setValue(info_1.getCardNumber());
         monthCard.setValue(info_1.getMonth());
-        String year = generateYear(5);
-        yearCard.setValue(year);
+        yearCard.setValue(info_1.getYear());
         ownerCard.setValue(info_1.getOwner());
         code.setValue(info_1.getCodeVerification());
         continueButton.click();
@@ -34,8 +33,7 @@ public class PurchasePage {
         buyButton.click();
         cardNumber.setValue(info_2.getCardNumber());
         monthCard.setValue(info_2.getMonth());
-        String year = generateYear(4);
-        yearCard.setValue(year);
+        yearCard.setValue(info_2.getYear());
         ownerCard.setValue(info_2.getOwner());
         code.setValue(info_2.getCodeVerification());
         continueButton.click();
@@ -46,8 +44,7 @@ public class PurchasePage {
         buyOnCreditButton.click();
         cardNumber.setValue(info_1.getCardNumber());
         monthCard.setValue(info_1.getMonth());
-        String year = generateYear(3);
-        yearCard.setValue(year);
+        yearCard.setValue(info_1.getYear());
         ownerCard.setValue(info_1.getOwner());
         code.setValue(info_1.getCodeVerification());
         continueButton.click();
@@ -58,8 +55,7 @@ public class PurchasePage {
         buyOnCreditButton.click();
         cardNumber.setValue(info_2.getCardNumber());
         monthCard.setValue(info_2.getMonth());
-        String year = generateYear(2);
-        yearCard.setValue(year);
+        yearCard.setValue(info_2.getYear());
         ownerCard.setValue(info_2.getOwner());
         code.setValue(info_2.getCodeVerification());
         continueButton.click();
@@ -70,8 +66,7 @@ public class PurchasePage {
         buyButton.click();
         cardNumber.setValue(infoInvalidCardNumber.getCardNumber());
         monthCard.setValue(infoInvalidCardNumber.getMonth());
-        String year = generateYear(1);
-        yearCard.setValue(year);
+        yearCard.setValue(infoInvalidCardNumber.getYear());
         ownerCard.setValue(infoInvalidCardNumber.getOwner());
         code.setValue(infoInvalidCardNumber.getCodeVerification());
         continueButton.click();
@@ -82,57 +77,53 @@ public class PurchasePage {
         buyButton.click();
         cardNumber.setValue(infoInvalidCardNumber.getCardNumber());
         monthCard.setValue(infoInvalidCardNumber.getMonth());
-        String year = generateYear(0);
-        yearCard.setValue(year);
+        yearCard.setValue(infoInvalidCardNumber.getYear());
         ownerCard.setValue(infoInvalidCardNumber.getOwner());
         code.setValue(infoInvalidCardNumber.getCodeVerification());
         continueButton.click();
         return new WrongFormatPage();
     }
 
-    public WrongFormatPage invalidMonth(DataHelper.CardInfoInvalidMonth infoInvalidMonth) {
+    public WrongFormatPage invalidMonth(DataHelper.CardInfo infoInvalidMonth) {
         buyButton.click();
         cardNumber.setValue(infoInvalidMonth.getCardNumber());
-        monthCard.setValue(infoInvalidMonth.getInvalidMonth());
-        String year = generateYear(0);
-        yearCard.setValue(year);
+        monthCard.setValue(infoInvalidMonth.getMonth());
+        yearCard.setValue(infoInvalidMonth.getYear());
         ownerCard.setValue(infoInvalidMonth.getOwner());
         code.setValue(infoInvalidMonth.getCodeVerification());
         continueButton.click();
         return new WrongFormatPage();
     }
 
-    public WrongFormatPage invalidYear(DataHelper.CardInfoInvalidYear infoInvalidYear) {
+    public WrongFormatPage invalidYear(DataHelper.CardInfo infoInvalidYear) {
         buyButton.click();
         cardNumber.setValue(infoInvalidYear.getCardNumber());
         monthCard.setValue(infoInvalidYear.getMonth());
-        yearCard.setValue(infoInvalidYear.getInvalidYear());
+        yearCard.setValue(infoInvalidYear.getYear());
         ownerCard.setValue(infoInvalidYear.getOwner());
         code.setValue(infoInvalidYear.getCodeVerification());
         continueButton.click();
         return new WrongFormatPage();
     }
 
-    public WrongFormatPage invalidOwner(DataHelper.CardInfoInvalidOwner infoInvalidOwner) {
+    public WrongFormatPage invalidOwner(DataHelper.CardInfo infoInvalidOwner) {
         buyButton.click();
         cardNumber.setValue(infoInvalidOwner.getCardNumber());
         monthCard.setValue(infoInvalidOwner.getMonth());
-        String year = generateYear(0);
-        yearCard.setValue(year);
-        ownerCard.setValue(infoInvalidOwner.getInvalidOwner());
+        yearCard.setValue(infoInvalidOwner.getYear());
+        ownerCard.setValue(infoInvalidOwner.getOwner());
         code.setValue(infoInvalidOwner.getCodeVerification());
         continueButton.click();
         return new WrongFormatPage();
     }
 
-    public WrongFormatPage invalidCodeVerification(DataHelper.CardInfoInvalidCodeVerification infoInvalidCodeVerification) {
+    public WrongFormatPage invalidCodeVerification(DataHelper.CardInfo infoInvalidCodeVerification) {
         buyButton.click();
         cardNumber.setValue(infoInvalidCodeVerification.getCardNumber());
         monthCard.setValue(infoInvalidCodeVerification.getMonth());
-        String year = generateYear(0);
-        yearCard.setValue(year);
+        yearCard.setValue(infoInvalidCodeVerification.getYear());
         ownerCard.setValue(infoInvalidCodeVerification.getOwner());
-        code.setValue(infoInvalidCodeVerification.getInvalidCodeVerification());
+        code.setValue(infoInvalidCodeVerification.getCodeVerification());
         continueButton.click();
         return new WrongFormatPage();
     }

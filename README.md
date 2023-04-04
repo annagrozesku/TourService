@@ -8,5 +8,5 @@
 6. Установить плагин "Database Navigator" в IDEA
 7. Открыть код проекта в IDEA
 8. Запустить docker-контейнеры командой docker-compose up --build 
-9. Запустить SUT командой java -jar aqa-shop.jar -P:jdbc.url=jdbc:postgresql://localhost:5432/app
+9. Запустить SUT командой java -jar aqa-shop.jar "-Dspring.datasource.url=jdbc:postgresql://localhost:5432/app" "-Dspring.datasource.url=jdbc:mysql://localhost:3306/app"
 10. Запустить автотесты командой ./gradlew clean test   
