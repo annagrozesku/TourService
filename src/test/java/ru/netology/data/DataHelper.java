@@ -79,11 +79,11 @@ public class DataHelper {
         return invalidOwner;
     }
 
-    public static CardInfo getCardInfo_1() {
+    public static CardInfo getCardInfoOne() {
         return new CardInfo("4444 4444 4444 4441", generateMonth(), generateYear(5), generateOwner("en"), generateCodeVerification());
     }
 
-    public static CardInfo getCardInfo_2() {
+    public static CardInfo getCardInfoTwo() {
         return new CardInfo("4444 4444 4444 4442", generateMonth(), generateYear(4), generateOwner("en"), generateCodeVerification());
     }
 
@@ -99,15 +99,15 @@ public class DataHelper {
         return new CardInfo("абв", generateMonth(), generateYear(1), generateOwner("en"), generateCodeVerification());
     }
 
-    public static CardInfo getCardNumber15() {
+    public static CardInfo getCardNumberFifteenDigits() {
         return new CardInfo("1111 1111 1111 111", generateMonth(), generateYear(5), generateOwner("en"), generateCodeVerification());
     }
 
-    public static CardInfo getInvalidMonth_00() {
+    public static CardInfo getInvalidMonthNull() {
         return new CardInfo("4444 4444 4444 4441", "00", generateYear(5), generateOwner("en"), generateCodeVerification());
     }
 
-    public static CardInfo getInvalidMonth_13() {
+    public static CardInfo getInvalidMonthThirteen() {
         return new CardInfo("4444 4444 4444 4441", "13", generateYear(5), generateOwner("en"), generateCodeVerification());
     }
 
@@ -119,7 +119,7 @@ public class DataHelper {
         return new CardInfo("4444 4444 4444 4441", "1", generateYear(5), generateOwner("en"), generateCodeVerification());
     }
 
-    public static CardInfo getInvalidYear_00() {
+    public static CardInfo getInvalidYearNull() {
         return new CardInfo("4444 4444 4444 4441", generateMonth(), "00", generateOwner("en"), generateCodeVerification());
     }
 

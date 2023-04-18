@@ -1,50 +1,53 @@
 package ru.netology.test;
 
 import org.junit.jupiter.api.Test;
-import ru.netology.Reporting;
 import ru.netology.data.DataHelper;
-import ru.netology.page.PurchasePage;
+import ru.netology.page.PurchaseMethodPage;
 
-import static com.codeborne.selenide.Selenide.open;
 
-public class OwnerTest extends Reporting {
+public class OwnerTest extends BaseTest {
     @Test
-    void shouldNotBePurchasedWithInvalidOwner_Cyrillic() {
-        open("http://localhost:8080/");
-        var purchasePage = new PurchasePage();
+    void shouldNotBePurchasedWithInvalidOwnerCyrillic() {
+        var purchaseMethodPage = new PurchaseMethodPage();
+        var formPage = purchaseMethodPage.buy();
         var invalidOwnerCyrillic = DataHelper.getInvalidOwnerCyrillic();
-        purchasePage.invalidOwner(invalidOwnerCyrillic);
+        formPage.buy(invalidOwnerCyrillic);
+        formPage.wrongFormat();
     }
 
     @Test
-    void shouldNotBePurchasedWithInvalidOwner_Symbols() {
-        open("http://localhost:8080/");
-        var purchasePage = new PurchasePage();
+    void shouldNotBePurchasedWithInvalidOwnerSymbols() {
+        var purchaseMethodPage = new PurchaseMethodPage();
+        var formPage = purchaseMethodPage.buy();
         var invalidOwnerSymbols = DataHelper.getInvalidOwnerSymbols();
-        purchasePage.invalidOwner(invalidOwnerSymbols);
+        formPage.buy(invalidOwnerSymbols);
+        formPage.wrongFormat();
     }
 
     @Test
-    void shouldNotBePurchasedWithInvalidOwner_Numbers() {
-        open("http://localhost:8080/");
-        var purchasePage = new PurchasePage();
+    void shouldNotBePurchasedWithInvalidOwnerNumbers() {
+        var purchaseMethodPage = new PurchaseMethodPage();
+        var formPage = purchaseMethodPage.buy();
         var invalidOwnerNumbers = DataHelper.getInvalidOwnerNumbers();
-        purchasePage.invalidOwner(invalidOwnerNumbers);
+        formPage.buy(invalidOwnerNumbers);
+        formPage.wrongFormat();
     }
 
     @Test
-    void shouldNotBePurchasedWithInvalidOwner_Space() {
-        open("http://localhost:8080/");
-        var purchasePage = new PurchasePage();
+    void shouldNotBePurchasedWithInvalidOwnerSpace() {
+        var purchaseMethodPage = new PurchaseMethodPage();
+        var formPage = purchaseMethodPage.buy();
         var invalidOwnerSpace = DataHelper.getInvalidOwnerSpace();
-        purchasePage.invalidOwner(invalidOwnerSpace);
+        formPage.buy(invalidOwnerSpace);
+        formPage.wrongFormat();
     }
 
     @Test
-    void shouldNotBePurchasedWithInvalidOwner_Spaces() {
-        open("http://localhost:8080/");
-        var purchasePage = new PurchasePage();
+    void shouldNotBePurchasedWithInvalidOwnerSpaces() {
+        var purchaseMethodPage = new PurchaseMethodPage();
+        var formPage = purchaseMethodPage.buy();
         var invalidOwnerSpaces = DataHelper.getInvalidOwnerSpaces();
-        purchasePage.invalidOwner(invalidOwnerSpaces);
+        formPage.buy(invalidOwnerSpaces);
+        formPage.wrongFormat();
     }
 }

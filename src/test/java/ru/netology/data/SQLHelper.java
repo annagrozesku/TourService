@@ -15,35 +15,34 @@ public class SQLHelper {
 
     @SneakyThrows
     private static Connection getConnection() {
-        return DriverManager.getConnection("jdbc:postgresql://localhost:5432/app", "app", "pass");
-    }
+        var url = System.getProperty("url.database");
+        var login = System.getProperty("login.database");
+        var password = System.getProperty("password.database");
 
-//    @SneakyThrows
-//    private static Connection getConnection() {
-//        return DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "app", "pass");
-//    }
+        return DriverManager.getConnection(url, login, password);
+    }
 
     @SneakyThrows
     public static DataHelper.InfoPaymentDB getInfoPaymentCard() {
-        var statusSQL = "SELECT * FROM payment_entity";
+        var statusSql = "SELECT * FROM payment_entity";
         var conn = getConnection();
-        var status = runner.query(conn, statusSQL, new BeanHandler<>(DataHelper.InfoPaymentDB.class));
+        var status = runner.query(conn, statusSql, new BeanHandler<>(DataHelper.InfoPaymentDB.class));
         return new DataHelper.InfoPaymentDB(status.getStatus(), status.getTransaction_id());
     }
 
     @SneakyThrows
     public static DataHelper.InfoCreditPurchaseDB getInfoPurchaseCreditCard() {
-        var statusSQL = "SELECT * FROM credit_request_entity";
+        var statusSql = "SELECT * FROM credit_request_entity";
         var conn = getConnection();
-        var creditStatus = runner.query(conn, statusSQL, new BeanHandler<>(DataHelper.InfoCreditPurchaseDB.class));
+        var creditStatus = runner.query(conn, statusSql, new BeanHandler<>(DataHelper.InfoCreditPurchaseDB.class));
         return new DataHelper.InfoCreditPurchaseDB(creditStatus.getBank_id(), creditStatus.getStatus());
     }
 
     @SneakyThrows
     public static DataHelper.FixingPurchaseOrderMethod getFixOrderMethod() {
-        var orderIDSQL = "SELECT * FROM order_entity";
+        var orderIdSql = "SELECT * FROM order_entity";
         var conn = getConnection();
-        var orderMethod = runner.query(conn, orderIDSQL, new BeanHandler<>(DataHelper.FixingPurchaseOrderMethod.class));
+        var orderMethod = runner.query(conn, orderIdSql, new BeanHandler<>(DataHelper.FixingPurchaseOrderMethod.class));
         return new DataHelper.FixingPurchaseOrderMethod(orderMethod.getCredit_id(), orderMethod.getPayment_id());
     }
 

@@ -1,42 +1,44 @@
 package ru.netology.test;
 
 import org.junit.jupiter.api.Test;
-import ru.netology.Reporting;
 import ru.netology.data.DataHelper;
-import ru.netology.page.PurchasePage;
+import ru.netology.page.PurchaseMethodPage;
 
-import static com.codeborne.selenide.Selenide.open;
 
-public class MonthTests extends Reporting {
+public class MonthTests extends BaseTest {
     @Test
-    void shouldNotBePurchasedWithInvalidMonth_00() {
-        open("http://localhost:8080/");
-        var purchasePage = new PurchasePage();
-        var invalidMonth_00 = DataHelper.getInvalidMonth_00();
-        purchasePage.invalidMonth(invalidMonth_00);
+    void shouldNotBePurchasedWithInvalidMonthNull() {
+        var purchaseMethodPage = new PurchaseMethodPage();
+        var formPage = purchaseMethodPage.buy();
+        var invalidMonthNull = DataHelper.getInvalidMonthNull();
+        formPage.buy(invalidMonthNull);
+        formPage.wrongFormat();
     }
 
     @Test
-    void shouldNotBePurchasedWithInvalidMonth_13() {
-        open("http://localhost:8080/");
-        var purchasePage = new PurchasePage();
-        var invalidMonth_13 = DataHelper.getInvalidMonth_13();
-        purchasePage.invalidMonth(invalidMonth_13);
+    void shouldNotBePurchasedWithInvalidMonthThirteen() {
+        var purchaseMethodPage = new PurchaseMethodPage();
+        var formPage = purchaseMethodPage.buy();
+        var invalidMonthThirteen = DataHelper.getInvalidMonthThirteen();
+        formPage.buy(invalidMonthThirteen);
+        formPage.wrongFormat();
     }
 
     @Test
-    void shouldNotBePurchasedWithInvalidMonth_Letters() {
-        open("http://localhost:8080/");
-        var purchasePage = new PurchasePage();
-        var invalidMonth_Letters = DataHelper.getInvalidMonthLetters();
-        purchasePage.invalidMonth(invalidMonth_Letters);
+    void shouldNotBePurchasedWithInvalidMonthLetters() {
+        var purchaseMethodPage = new PurchaseMethodPage();
+        var formPage = purchaseMethodPage.buy();
+        var invalidMonthLetters = DataHelper.getInvalidMonthLetters();
+        formPage.buy(invalidMonthLetters);
+        formPage.wrongFormat();
     }
 
     @Test
-    void shouldNotBePurchasedWithInvalidMonth_1_Digit() {
-        open("http://localhost:8080/");
-        var purchasePage = new PurchasePage();
-        var invalidMonth_1_Digit = DataHelper.getInvalidMonthOneDigit();
-        purchasePage.invalidMonth(invalidMonth_1_Digit);
+    void shouldNotBePurchasedWithInvalidMonthOneDigit() {
+        var purchaseMethodPage = new PurchaseMethodPage();
+        var formPage = purchaseMethodPage.buy();
+        var invalidMonthOneDigit = DataHelper.getInvalidMonthOneDigit();
+        formPage.buy(invalidMonthOneDigit);
+        formPage.wrongFormat();
     }
 }

@@ -1,35 +1,35 @@
 package ru.netology.test;
 
 import org.junit.jupiter.api.Test;
-import ru.netology.Reporting;
 import ru.netology.data.DataHelper;
-import ru.netology.page.PurchasePage;
+import ru.netology.page.PurchaseMethodPage;
 
-import static com.codeborne.selenide.Selenide.open;
 
-public class VerificationCodeTests extends Reporting {
+public class VerificationCodeTests extends BaseTest {
     @Test
-    void shouldNotBePurchasedWithInvalidCodeVerification_Null() {
-        open("http://localhost:8080/");
-        var purchasePage = new PurchasePage();
-        var invalidCodeVerification_Null = DataHelper.getInvalidCodeVerificationNull();
-        purchasePage.invalidCodeVerification(invalidCodeVerification_Null);
+    void shouldNotBePurchasedWithInvalidCodeVerificationNull() {
+        var purchaseMethodPage = new PurchaseMethodPage();
+        var formPage = purchaseMethodPage.buy();
+        var invalidCodeVerificationNull = DataHelper.getInvalidCodeVerificationNull();
+        formPage.buy(invalidCodeVerificationNull);
+        formPage.wrongFormat();
     }
 
     @Test
-    void shouldNotBePurchasedWithInvalidCodeVerification_Letters() {
-        open("http://localhost:8080/");
-        var purchasePage = new PurchasePage();
-        var invalidCodeVerification_Letters = DataHelper.getInvalidCodeVerificationLetters();
-        purchasePage.invalidCodeVerification(invalidCodeVerification_Letters);
+    void shouldNotBePurchasedWithInvalidCodeVerificationLetters() {
+        var purchaseMethodPage = new PurchaseMethodPage();
+        var formPage = purchaseMethodPage.buy();
+        var invalidCodeVerificationLetters = DataHelper.getInvalidCodeVerificationLetters();
+        formPage.buy(invalidCodeVerificationLetters);
+        formPage.wrongFormat();
     }
 
     @Test
-    void shouldNotBePurchasedWithInvalidCodeVerification_1_Digit() {
-        open("http://localhost:8080/");
-        var purchasePage = new PurchasePage();
-        var invalidCodeVerification_1_Digit = DataHelper.getInvalidCodeVerificationOneDigit();
-        purchasePage.invalidCodeVerification(invalidCodeVerification_1_Digit);
+    void shouldNotBePurchasedWithInvalidCodeVerificationOneDigit() {
+        var purchaseMethodPage = new PurchaseMethodPage();
+        var formPage = purchaseMethodPage.buy();
+        var invalidCodeVerificationOneDigit = DataHelper.getInvalidCodeVerificationOneDigit();
+        formPage.buy(invalidCodeVerificationOneDigit);
+        formPage.wrongFormat();
     }
-
 }

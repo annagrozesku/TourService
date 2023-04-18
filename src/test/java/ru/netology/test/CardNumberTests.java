@@ -1,42 +1,44 @@
 package ru.netology.test;
 
 import org.junit.jupiter.api.Test;
-import ru.netology.Reporting;
 import ru.netology.data.DataHelper;
-import ru.netology.page.PurchasePage;
+import ru.netology.page.PurchaseMethodPage;
 
-import static com.codeborne.selenide.Selenide.open;
 
-public class CardNumberTests extends Reporting {
+public class CardNumberTests extends BaseTest {
     @Test
-    void shouldNotBePurchasedWithInvalidCardNumber_Null() {
-        open("http://localhost:8080/");
-        var purchasePage = new PurchasePage();
+    void shouldNotBePurchasedWithInvalidCardNumberNull() {
+        var purchaseMethodPage = new PurchaseMethodPage();
+        var formPage = purchaseMethodPage.buy();
         var cardNumberNull = DataHelper.getCardNumberNull();
-        purchasePage.buyInvalidCardNumber(cardNumberNull);
+        formPage.buy(cardNumberNull);
+        formPage.error();
     }
 
     @Test
-    void shouldNotBePurchasedWithInvalidCardNumber_Nine() {
-        open("http://localhost:8080/");
-        var purchasePage = new PurchasePage();
+    void shouldNotBePurchasedWithInvalidCardNumberNine() {
+        var purchaseMethodPage = new PurchaseMethodPage();
+        var formPage = purchaseMethodPage.buy();
         var cardNumberNine = DataHelper.getCardNumberNine();
-        purchasePage.buyInvalidCardNumber(cardNumberNine);
+        formPage.buy(cardNumberNine);
+        formPage.error();
     }
 
     @Test
-    void shouldNotBePurchasedWithInvalidCardNumber_Letters() {
-        open("http://localhost:8080/");
-        var purchasePage = new PurchasePage();
+    void shouldNotBePurchasedWithInvalidCardNumberLetters() {
+        var purchaseMethodPage = new PurchaseMethodPage();
+        var formPage = purchaseMethodPage.buy();
         var cardNumberLetters = DataHelper.getCardNumberLetters();
-        purchasePage.invalidCardNumber(cardNumberLetters);
+        formPage.buy(cardNumberLetters);
+        formPage.wrongFormat();
     }
 
     @Test
-    void shouldNotBePurchasedWithInvalidCardNumber_15_Digits() {
-        open("http://localhost:8080/");
-        var purchasePage = new PurchasePage();
-        var cardNumber_15_Digits = DataHelper.getCardNumber15();
-        purchasePage.invalidCardNumber(cardNumber_15_Digits);
+    void shouldNotBePurchasedWithInvalidCardNumberFifteenDigits() {
+        var purchaseMethodPage = new PurchaseMethodPage();
+        var formPage = purchaseMethodPage.buy();
+        var cardNumberFifteenDigits = DataHelper.getCardNumberFifteenDigits();
+        formPage.buy(cardNumberFifteenDigits);
+        formPage.wrongFormat();
     }
 }
