@@ -13,7 +13,7 @@
 - Процент успешных тест-кейсов: 68 % 
 
 - Процент не успешных тест-кейсов: 32 % 
-- 
+
 ![ScreenshotAllure](https://github.com/annagrozesku/TourService/blob/main/allure.png)
 
 ### Рекомендации
