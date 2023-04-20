@@ -14,7 +14,7 @@
 
 - Процент не успешных тест-кейсов: 32 % 
 
-![ScreenshotAllure](https://github.com/annagrozesku/TourService/blob/main/allure.png)
+![ScreenshotAllure](https://github.com/annagrozesku/TourService/blob/main/Screenshot_1.png)
 
 ### Рекомендации
  Улучшить подготовку тестовых данных (например, написать генератор невалидных данных, чтобы уменьшить количество захардкоденных данных и улучшить читаемость кода), больше внимания уделять подготовительным этапам (например, составление тест-кейсов).
