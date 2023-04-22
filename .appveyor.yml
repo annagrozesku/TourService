@@ -19,4 +19,4 @@ install:
 
 build_script:
   - chmod +x gradlew
-  - ./gradlew test "-Durl.database=jdbc:postgresql://localhost:5432/app" "-Dlogin.database=app" "-Dpassword.database=pass"  # запускаем тест, флаг --info позволяет выводить больше информации
+  - ./gradlew test "-Durl.database=jdbc:postgresql://localhost:5432/app" "-Dlogin.database=app" "-Dpassword.database=pass" -Dselenide.headless=true  # запускаем тест, флаг --info позволяет выводить больше информации
