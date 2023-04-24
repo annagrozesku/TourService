@@ -28,7 +28,7 @@ public class FormPage {
     }
 
     public FormPage wrongFormat() {
-        wrongFormat.shouldBe(visible, Duration.ofSeconds(20));
+        wrongFormat.shouldBe(visible);
         return this;
     }
 
