@@ -8,15 +8,15 @@
 6. Установить плагин "Database Navigator" в IDEA
 7. Открыть код проекта в IDEA
 8. Запустить docker-контейнеры командой docker-compose up --build
-9. Запустить SUT и тесты одним из вариантов, представленных ниже
+9. Запустить SUT и тесты одним из вариантов, представленных ниже (в зависимости от того, какую БД предполагается использовать)
 10. Вызвать отчеты командой ./gradlew allureserve
 
-*Запуск приложения и тестов на PosgreSQL:*
+*Запуск SUT и тестов на PosgreSQL:*
 
 1. Запустить SUT командой java "-Dspring.datasource.url=jdbc:postgresql://localhost:5432/app" "-Dspring.datasource.username=app" "-Dspring.datasource.password=pass" -jar aqa-shop.jar
 2. Запустить автотесты командой ./gradlew test "-Durl.database=jdbc:postgresql://localhost:5432/app" "-Dlogin.database=app" "-Dpassword.database=pass"  
 
-*Запуск приложения и тестов на MySQL:*
+*Запуск SUT и тестов на MySQL:*
 
 1. Запустить SUT командой java "-Dspring.datasource.url=jdbc:mysql://localhost:3306/app" "-Dspring.datasource.username=app" "-Dspring.datasource.password=pass" -jar aqa-shop.jar
 2. Запустить автотесты командой ./gradlew test "-Durl.database=jdbc:mysql://localhost:3306/app" "-Dlogin.database=app" "-Dpassword.database=pass"
