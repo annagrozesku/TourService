@@ -11,11 +11,12 @@
 9. Запустить приложение и тесты одним из вариантов, представленных ниже
 10. Вызвать отчеты командой ./gradlew allureserve
 
-*Запуск приложения и тестов на posgresql:*
+*Запуск приложения и тестов на PosgreSQL:*
+
 9. Запустить SUT командой java "-Dspring.datasource.url=jdbc:postgresql://localhost:5432/app" "-Dspring.datasource.username=app" "-Dspring.datasource.password=pass" -jar aqa-shop.jar
 10. Запустить автотесты командой ./gradlew test "-Durl.database=jdbc:postgresql://localhost:5432/app" "-Dlogin.database=app" "-Dpassword.database=pass"  
 
-*Запуск приложения и тестов на posgresql:*
+*Запуск приложения и тестов на MySQL:*
 
 11. Запустить SUT командой java "-Dspring.datasource.url=jdbc:mysql://localhost:3306/app" "-Dspring.datasource.username=app" "-Dspring.datasource.password=pass" -jar aqa-shop.jar
 12. Запустить автотесты командой ./gradlew test "-Durl.database=jdbc:mysql://localhost:3306/app" "-Dlogin.database=app" "-Dpassword.database=pass"
